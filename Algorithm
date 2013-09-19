@@ -1,0 +1,52 @@
+/*
+
+**********************************NOTE BELOW********************************************
+I want my program to extend ArraySet. ArraySet also implements the interface MySet<E>
+The methods in ArraySet require parameters of type MySet, so because I want to use these methods
+I am creating sets of type MySet in my program. Is this right? I put stars on the line below because I do not
+know if that is what I am supposed to put at the beginning of my program
+
+*******This class should extend ArraySet (public class AliceSpellCheckHW<E> extends ArraySet)
+Create a fileReader, reader, that will read the file "Alice30h.txt"
+Create another fileReader, readerSpell, that will read the file "Unabr1U.txt"
+Create a fileWriter, w, that will write to the file "Misspelled.txt"
+Create a printWriter, writer, that will use the fileWriter to write to the file "Misspelled.txt"
+
+Algorithm:
+
+Read the entire file, "Alice30h.txt", into a string, aliceS
+Use string tokenizer to separate the string into words at every space " "
+	print each element created from this into MySet (alice)
+	because I want to be able to analyze the elements in this set
+	and when using the methods from the ArraySet class, the parameters are of type MySet
+Read the entire file, "Unabr1U.txt", line by line
+	Each line will be read into a string, s
+	Each string, s, will be added as a new element to the set MySet correct
+	because I want to be able to compare the elements in this set with the elements in alice
+	so the two sets should be of the same type
+Create a MySet (misspelled) to print misspelled words to
+	Once this set is complete, it will be printed to the file "Misspelled.txt"
+
+Remove all punctutation in alice (any character that is not 'a-z' or a space) since the dictionary does not contain any punctuation
+Separate (split) the words at spaces to create separate elements
+Convert all the letters in the entire set (alice) to lower case
+
+Find the difference of alice and correct (alice - correct) using the difference method from ArraySet class
+	because this will return a new copy of type MySet with all of the elements in "alice" that are not in "correct"
+	These elements will be all of the misspelled words
+Catch this returned MySet<E> into a new variable (MySet<E> difference)
+	All of these elements in (difference) will be those spelled incorrectly
+	These are the elements that I want to print to the file "Misspelled.txt"
+For each element in (difference),
+	Check to see if the element from (difference) exists in MySet<E> (misspelled) (Use the contains method in ArraySet)
+	Call the contains method in ArraySet and send it the element as the parameter
+	If the element exists in MySet<E> (misspelled) (returns true)
+		do not print the element to MySet<E> (misspelled)
+		because we only want one copy of each misspelled word in this set
+	If the element does not exist in MySet<E> (misspelled) (returns false)
+		print element to MySet<E> (misspelled)
+		because we need to make sure one copy of this element exists in this set
+After all the elements are accounted for, print the entire (misspelled) set to the file Misspelled.txt
+This file will now have one copy of all of the misspelled words from the original file Alice30h.txt
+
+*/
